@@ -125,12 +125,17 @@ public final class ReciprocalArraySum {
 
         @Override
         protected void compute() {
-            // TODO
+            double sum = 0;
+
+            for (int i = startIndexInclusive; i < endIndexExclusive; i++) {
+                sum += 1 / input[i];
+            }
+
+            value = sum;
         }
     }
 
     /**
-     * TODO: Modify this method to compute the same reciprocal sum as
      * seqArraySum, but use two tasks running in parallel under the Java Fork
      * Join framework. You may assume that the length of the input array is
      * evenly divisible by 2.
@@ -143,9 +148,19 @@ public final class ReciprocalArraySum {
 
         double sum = 0;
 
-        // Compute sum of reciprocals of array elements
-        for (int i = 0; i < input.length; i++) {
-            sum += 1 / input[i];
+        int low = 0;
+        int high = input.length;
+        int mid = (low + high) / 2;
+
+        if (low >= high) sum +=0;
+        else {
+            ReciprocalArraySumTask task1 = new ReciprocalArraySumTask(low, mid, input);
+            ReciprocalArraySumTask task2 = new ReciprocalArraySumTask(mid + 1, high, input);
+
+            task1.join();
+            task2.join();
+
+            sum += task1.getValue() + task2.getValue();
         }
 
         return sum;
