@@ -7,6 +7,12 @@
     <groupId>org.oo.demo</groupId>
     <artifactId>Parallel-Concurrent-and-Distributed-Programming</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+
+    <modules>
+        <module>Java Concurrency in Practice</module>
+    </modules>
 
 
 </project>
