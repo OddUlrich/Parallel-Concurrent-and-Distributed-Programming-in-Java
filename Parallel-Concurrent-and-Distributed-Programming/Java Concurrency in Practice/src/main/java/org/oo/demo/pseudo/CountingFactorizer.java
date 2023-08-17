@@ -1,25 +1,26 @@
 package org.oo.demo.pseudo;
 
-import org.oo.demo.annotation.NotThreadSafe;
+import org.oo.demo.annotation.ThreadSafe;
 
 import javax.servlet.*;
 import java.math.BigInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 import static org.oo.demo.pseudo.CommonServletService.*;
 
-@NotThreadSafe
-public class UnsafeCountingFactorizer implements Servlet {
+@ThreadSafe
+public class CountingFactorizer implements Servlet {
 
-    private long count = 0;
+    private final AtomicLong count = new AtomicLong(0);
 
     public long getCount() {
-        return count;
+        return count.get();
     }
 
     public void service(ServletRequest req, ServletResponse resp) {
         BigInteger i = extractFromRequest(req);
         BigInteger[] factors = factor(i);
-        ++count;
+        count.incrementAndGet();
         encodeIntoResponse(resp, factors);
     }
 
