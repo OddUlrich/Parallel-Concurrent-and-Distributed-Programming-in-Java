@@ -1,4 +1,6 @@
-package org.oo.demo;
+package org.oo.demo.pseudo;
+
+import org.oo.demo.annotation.NotThreadSafe;
 
 @NotThreadSafe
 public class UnsafeSequence {
