@@ -1,8 +1,10 @@
 package org.oo.demo.pseudo;
 
 import org.oo.demo.annotation.ThreadSafe;
+import org.oo.demo.iface.Servlet;
+import org.oo.demo.model.ServletRequest;
+import org.oo.demo.model.ServletResponse;
 
-import javax.servlet.*;
 import java.math.BigInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -24,23 +26,4 @@ public class CountingFactorizer implements Servlet {
         encodeIntoResponse(resp, factors);
     }
 
-    @Override
-    public void init(ServletConfig servletConfig) throws ServletException {
-
-    }
-
-    @Override
-    public ServletConfig getServletConfig() {
-        return null;
-    }
-
-    @Override
-    public String getServletInfo() {
-        return null;
-    }
-
-    @Override
-    public void destroy() {
-
-    }
 }

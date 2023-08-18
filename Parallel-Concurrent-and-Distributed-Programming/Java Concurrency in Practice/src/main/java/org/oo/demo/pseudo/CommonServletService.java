@@ -1,7 +1,8 @@
 package org.oo.demo.pseudo;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import org.oo.demo.model.ServletRequest;
+import org.oo.demo.model.ServletResponse;
+
 import java.math.BigInteger;
 
 public class CommonServletService {
