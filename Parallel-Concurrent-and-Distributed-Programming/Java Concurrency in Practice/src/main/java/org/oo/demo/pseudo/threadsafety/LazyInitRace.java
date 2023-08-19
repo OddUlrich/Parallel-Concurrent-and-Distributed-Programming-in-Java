@@ -1,4 +1,4 @@
-package org.oo.demo.pseudo;
+package org.oo.demo.pseudo.threadsafety;
 
 import org.oo.demo.annotation.NotThreadSafe;
 import org.oo.demo.model.ExpensiveObject;
