@@ -35,6 +35,7 @@ public class CachedFactorizer implements Servlet {
         BigInteger[] factors = null;
         synchronized (this) {
             ++hits;
+
             if (i.equals(lastNumber)) {
                 ++cacheHits;
                 factors = lastFactors.clone();
