@@ -39,7 +39,11 @@ public class Preloader {
         return new ProductInfo();
     }
 
-    private InterruptedException launderThrowable(Throwable cause) {
-        return new InterruptedException();
+    private RuntimeException launderThrowable(Throwable t) {
+        if (t instanceof RuntimeException) {
+            return (RuntimeException) t;
+        } else {
+            throw new IllegalStateException("Not unchecked", t);
+        }
     }
 }
