@@ -7,6 +7,8 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 @ThreadSafe
 public class PrimeGenerator implements Runnable {
 
@@ -30,6 +32,17 @@ public class PrimeGenerator implements Runnable {
 
     public synchronized List<BigInteger> get() {
         return new ArrayList<>(primes);
+    }
+
+    List<BigInteger> aSecondOfPrimes() throws InterruptedException {
+        PrimeGenerator generator = new PrimeGenerator();
+        new Thread(generator).start();
+        try {
+            SECONDS.sleep(1);
+        } finally {
+            generator.cancel();
+        }
+        return generator.get();
     }
 
 }
