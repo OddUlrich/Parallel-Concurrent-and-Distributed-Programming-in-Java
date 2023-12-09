@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>edu.coursera.parallel</groupId>
@@ -29,11 +29,6 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-resources-plugin</artifactId>
             <version>2.4.3</version>
-        </dependency>
-        <dependency>
-            <groupId>edu.rice.pcdp</groupId>
-            <artifactId>pcdp-core</artifactId>
-            <version>${pcdp.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -75,7 +70,7 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.17</version>
                     <configuration>
-                        <forkMode>pertest</forkMode> 
+                        <forkMode>pertest</forkMode>
                         <argLine>-Xmx4g</argLine>
                         <useSystemClassLoader>true</useSystemClassLoader>
                         <testFailureIgnore>true</testFailureIgnore>
